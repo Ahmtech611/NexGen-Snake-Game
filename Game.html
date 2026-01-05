@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="no-referrer">
+    <title>NexGen Snake</title>
+    <link rel="stylesheet" href="Style.CSS">
+</head>
+<body>
+    <!-- Info Dialog Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h2 data-i18n="welcome">Welcome to NexGen Snake</h2>
+            <p class="modal-subtitle" data-i18n="provideInfo">Please provide your information to continue</p>
+            <form id="infoForm">
+                <div class="form-group">
+                    <label for="playerName" data-i18n="name">Name:</label>
+                    <input type="text" id="playerName" name="playerName" required data-i18n-placeholder="enterName">
+                </div>
+                <div class="form-group">
+                    <label for="playerAge" data-i18n="age">Age:</label>
+                    <input type="number" id="playerAge" name="playerAge" required min="18" data-i18n-placeholder="agePlaceholder">
+                    <small class="age-warning" data-i18n="ageWarning">⚠️ You must be 18 or older to play</small>
+                </div>
+                <div class="form-group">
+                    <label for="playerPassword" data-i18n="password">Password:</label>
+                    <input type="password" id="playerPassword" name="playerPassword" required data-i18n-placeholder="enterPassword">
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <button type="submit" class="submit-btn" data-i18n="startGame">Start Game</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="game-container">
+            <!-- Game Header -->
+            <div class="game-header">
+                <div class="header-left">
+                    <h1 class="game-title">NexGen Snake</h1>
+                    <div class="language-selector">
+                        <select id="languageSelect" class="lang-select" aria-label="Select Language" title="Select Language">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="zh">中文</option>
+                            <option value="ar">العربية</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-label" data-i18n="score">Score</div>
+                        <div class="stat-value" id="scoreDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label" data-i18n="highScore">High Score</div>
+                        <div class="stat-value" id="highScoreDisplay">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div class="board-wrapper">
+                <div class="board">
+                    
+                </div>
+            </div>
+
+            <!-- Game Controls & Info -->
+            <div class="game-footer">
+                <div class="controls-info">
+                    <div class="control-item">
+                        <span class="control-key">↑</span>
+                        <span class="control-key">↓</span>
+                        <span class="control-key">←</span>
+                        <span class="control-key">→</span>
+                        <span class="control-text" data-i18n="arrowKeys">Arrow Keys to Move</span>
+                    </div>
+                </div>
+                <div class="game-info">
+                    <p data-i18n="eatFood">Eat the food to grow longer!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Scenario_Logic.JS"></script>    
+</body>
+</html>
