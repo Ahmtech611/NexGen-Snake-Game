@@ -90,6 +90,82 @@
     border-radius: 8px;
 }
 
+.controls-note {
+    position: fixed;
+    bottom: 5vh;                  
+    right: 4vw;                   
+    text-align: center;
+    z-index: 1000;
+    user-select: none;
+    transition: opacity 1.2s ease;
+    opacity: 1;
+    pointer-events: none;         
+}
+
+.controls-note p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 
+        0 0 12px #00ffff,
+        0 0 25px #00ffff;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.arrows {
+    display: grid;
+    grid-template-areas: 
+        ". up ."
+        "left down right";
+    grid-template-columns: 70px 70px 70px;
+    grid-template-rows: 70px 70px;
+    gap: 12px;
+    justify-content: center;
+}
+
+.arrow {
+    font-size: 3rem;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 255, 0.18);
+    border: 3px solid #00ffff;
+    border-radius: 18px;
+    color: #00ffff;
+    text-shadow: 
+        0 0 18px #00ffff,
+        0 0 35px #00ffff;
+    box-shadow: 
+        0 0 25px rgba(0, 255, 255, 0.7),
+        inset 0 0 18px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 45px rgba(0, 255, 255, 0.9);
+    background: rgba(0, 255, 255, 0.35);
+}
+
+.arrow.up {
+     grid-area: up; 
+}
+
+.arrow.left { 
+    grid-area: left; 
+}
+
+.arrow.down { 
+    grid-area: down; 
+}
+
+.arrow.right { 
+    grid-area: right; 
+}
+
 .board{
     background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); /* Deeper dark blues */
     border: 4px solid #00ffea; /* Cyan neon border */

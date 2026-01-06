@@ -140,6 +140,17 @@ function gameEngine(){
     Board.appendChild(foodElement);
 }
 
+let hasMoved = false;
+
+window.addEventListener('keydown', e => {
+    // Your existing keydown code...
+
+    if (!hasMoved && (e.key.startsWith('Arrow'))) {
+        hasMoved = true;
+        document.querySelector('.controls-note').style.opacity = '0';
+    }
+});
+
 // Main logic starts here :
 window.requestAnimationFrame(main); 
 
