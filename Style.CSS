@@ -222,3 +222,55 @@
     50% { transform: scale(1.1); box-shadow: 0 0 30px #ffff00, 0 0 60px #ff00ff, 0 0 80px rgba(255,0,255,0.8); }
     100% { transform: scale(1); box-shadow: 0 0 20px #ffff00, 0 0 40px #ff00ff; }
 }
+
+.touch-controls {
+    display: none; 
+    position: fixed;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.touch-arrow {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 255, 0.25);
+    border: 4px solid #00ffff;
+    border-radius: 20px;
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.touch-arrow:active {
+    transform: scale(0.85);
+    background: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 1);
+}
+
+/* Positions: Left/Right for horizontal, Up/Down :*/
+.touch-arrow.left { left: 8vw; bottom: 8vh; }
+.touch-arrow.right { right: 8vw; bottom: 8vh; }
+.touch-arrow.up { left: 50%; transform: translateX(-50%); bottom: 20vh; }
+.touch-arrow.down { left: 50%; transform: translateX(-50%); bottom: 0; }
+
+/* Show only on mobile/small screens */
+@media (max-width: 768px) {
+    .touch-controls {
+        display: block;
+    }
+    
+    /*Hide the text instructions on mobile :*/
+    .controls-note {
+        display: none;
+    }
+}

@@ -154,6 +154,14 @@ window.addEventListener('keydown', e => {
 // Main logic starts here :
 window.requestAnimationFrame(main); 
 
+function changeDirection(newDir) {
+  // Same anti-reverse logic as keyboard
+  if ((newDir.x !== -inputDir.x) || (newDir.y !== -inputDir.y)) {
+      inputDir = newDir;
+      moveSound.play();
+  }
+}
+
 window.addEventListener('keydown', e => {  
   let newDir;
 
