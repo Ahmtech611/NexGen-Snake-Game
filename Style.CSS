@@ -292,9 +292,9 @@
 }
 
 /* Better positions */
-.touch-arrow.left   { left: 12vw; bottom: 8vh; }
-.touch-arrow.right  { right: 12vw; bottom: 8vh; }
-.touch-arrow.up     { left: 50%; transform: translateX(-50%); bottom: 23vh; }  /* Lower = more space */
+.touch-arrow.left   { left: 8vw; bottom: 8vh; }
+.touch-arrow.right  { right: 8vw; bottom: 8vh; }
+.touch-arrow.up     { left: 50%; transform: translateX(-50%); bottom: 25vh; }
 .touch-arrow.down   { left: 50%; transform: translateX(-50%); bottom: 4vh; }
 
 /* Press effect */
