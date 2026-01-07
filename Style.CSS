@@ -98,23 +98,23 @@
 }
 
 @media (max-width: 768px) {
+    .title {
+        top: 2vh;
+        font-size: 2.2rem;
+    }
+    
     .highscore-box {
-        top: 5vh;                 /* Much higher */
+        top: 12vh;   
         left: 3vw;
         font-size: 1rem;
         padding: 8px 14px;
     }
     
     .score-box {
-        top: 14vh;                /* Lower, safe distance from high-score */
+        top: 20vh;   
         left: 3vw;
         font-size: 1rem;
         padding: 8px 14px;
-    }
-    
-    .title {
-        top: 1vh;
-        font-size: 2rem;
     }
 }
 
@@ -278,22 +278,24 @@
     height: 90px;
     font-size: 4.8rem;
     color: #00ffff;
-    background: rgba(0, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
     border: 3px solid #00ffff;
     border-radius: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
     transition: all 0.2s ease;
     pointer-events: all;
-}
+    background: rgba(0, 20, 40, 0.4);  /* Dark but transparent - snake shows through */
+    backdrop-filter: blur(5px); 
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);      
+    }
+
 
 .touch-arrow:active {
     transform: scale(0.9);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+    background: rgba(0, 40, 60, 0.6);
     opacity: 0.8;
-    box-shadow: 0 0 40px rgba(0, 255, 255, 1); /* Optional: extra glow on press */
 }
 
 .touch-arrow.left   { left: 8vw;   bottom: 8vh; }
