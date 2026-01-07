@@ -19,13 +19,29 @@
 
 .title {
     position: fixed;
-    top: 5vh;
+    top: 4vh;                     /* Higher up, away from score boxes */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3rem;
+    font-size: 2.8rem;            /* Smaller on mobile for no overlap */
+    font-weight: 900;
     color: #00ffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+    text-shadow: 
+        0 0 15px #00ffff,
+        0 0 30px #00ffff,
+        0 0 50px #00ffff,
+        0 0 70px #00ffff;
+    letter-spacing: 3px;
     z-index: 1000;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* Mobile-specific tweak */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2rem;        
+        top: 2vh;                 
+    }
 }
 
 .score-box {
@@ -79,6 +95,17 @@
 #high-score{
     color: #ff00ff;
     font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .highscore-box, .score-box {
+        font-size: 1.1rem;
+        padding: 10px 16px;
+        top: 12vh;                /* Push down a bit under title */
+    }
+    .highscore-box { 
+        top: 8vh; 
+    }   /* High-score higher than score */
 }
 
 .board::before {
@@ -224,53 +251,43 @@
 }
 
 .touch-controls {
-    display: none; 
+    display: none; /* Still hidden on desktop */
     position: fixed;
-    bottom: 5vh;
+    bottom: 0;
     left: 0;
     right: 0;
+    height: 28vh;                 /* More bottom space */
     z-index: 1000;
-    pointer-events: auto;
 }
 
 .touch-arrow {
     position: absolute;
-    width: 70px;
-    height: 70px;
-    font-size: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 255, 255, 0.25);
-    border: 4px solid #00ffff;
-    border-radius: 20px;
-    color: #00ffff;
-    text-shadow: 0 0 20px #00ffff;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-    user-select: none;
-    transition: all 0.2s ease;
+    width: 80px;                  /* Bigger taps */
+    height: 80px;
+    font-size: 4rem;
+    /* existing glow styles... */
 }
 
-.touch-arrow:active {
-    transform: scale(0.85);
-    background: rgba(0, 255, 255, 0.6);
-    box-shadow: 0 0 60px rgba(0, 255, 255, 1);
+/* Better mobile positions */
+.touch-arrow.left { 
+    left: 10vw; bottom: 10vh; 
 }
 
-/* Positions: Left/Right for horizontal, Up/Down :*/
-.touch-arrow.left { left: 8vw; bottom: 8vh; }
-.touch-arrow.right { right: 8vw; bottom: 8vh; }
-.touch-arrow.up { left: 50%; transform: translateX(-50%); bottom: 20vh; }
-.touch-arrow.down { left: 50%; transform: translateX(-50%); bottom: 0; }
+.touch-arrow.right { 
+    right: 10vw; bottom: 10vh; 
+}
 
-/* Show only on mobile/small screens */
+.touch-arrow.up { 
+    left: 50%; transform: translateX(-50%); bottom: 22vh; 
+}
+  /* Higher up */
+.touch-arrow.down { 
+    left: 50%; transform: translateX(-50%); bottom: 4vh; 
+}   /* Lower down */
+
+/* Show on mobile */
 @media (max-width: 768px) {
-    .touch-controls {
-        display: block;
-    }
-    
-    /*Hide the text instructions on mobile :*/
-    .controls-note {
-        display: none;
+    .touch-controls { 
+        display: block; 
     }
 }
