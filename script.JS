@@ -87,7 +87,8 @@ function gameEngine(){
         speed = Math.min(speed + 1, 15);
       }
       
-      SnakeArr.unshift({x : SnakeArr[0].x + inputDir.x, y: SnakeArr[0].y + inputDir.y});
+      // Grow correctly without extra forward jump
+      SnakeArr.unshift({x : SnakeArr[0].x, y : SnakeArr[0].y});
       Food = generateFoodPosition(SnakeArr);
     }
 
