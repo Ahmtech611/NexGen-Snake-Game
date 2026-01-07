@@ -219,6 +219,7 @@
     grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(18, 1fr);
     margin: auto;
+    margin-top: 8vh;
 }
 
 .head{
@@ -306,4 +307,10 @@
 
 @media (max-width: 768px) {
     .touch-controls { display: block; }
+}
+
+@media (max-width: 768px) {
+    .controls-note {
+        display: none;
+    }
 }
