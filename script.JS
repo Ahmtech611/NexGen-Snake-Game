@@ -188,25 +188,26 @@ document.querySelectorAll('.touch-arrow').forEach(btn => {
 });
 
 // Prevent Google Lens / Touch to Search popup on touch buttons
+// Mobile touch controls - instant + no popups
 document.querySelectorAll('.touch-arrow').forEach(btn => {
-  btn.addEventListener('contextmenu', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-  });
+  const dir = JSON.parse(btn.dataset.dir);
 
   btn.addEventListener('touchstart', e => {
-      e.preventDefault();  // Stops any visual search trigger
+      e.preventDefault();
+      e.stopPropagation();
+      changeDirection(dir);
   });
 
   btn.addEventListener('touchend', e => {
       e.preventDefault();
+      e.stopPropagation();
   });
-});
 
-// Global fallback - prevent context menu on whole page (optional, remove if you want right-click elsewhere)
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
+  // Prevent context menu / Google Lens popup on long tap
+  btn.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      e.stopPropagation();
+  });
 });
 
 // Main logic starts here :

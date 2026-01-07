@@ -26,10 +26,10 @@
     <!-- Adding functionalities of touch screen arrows : -->
 
     <div class="touch-controls">
-        <div class="touch-arrow left" onclick="changeDirection({x: -1, y: 0})">←</div>
-        <div class="touch-arrow right" onclick="changeDirection({x: 1, y: 0})">→</div>
-        <div class="touch-arrow up" onclick="changeDirection({x: 0, y: -1})">↑</div>
-        <div class="touch-arrow down" onclick="changeDirection({x: 0, y: 1})">↓</div>
+        <div class="touch-arrow left" data-dir='{"x":-1,"y":0}'>←</div>
+        <div class="touch-arrow right" data-dir='{"x":1,"y":0}'>→</div>
+        <div class="touch-arrow up" data-dir='{"x":0,"y":-1}'>↑</div>
+        <div class="touch-arrow down" data-dir='{"x":0,"y":1}'>↓</div>
     </div>
 
     <!-- Adding Arrow key for player help : -->
