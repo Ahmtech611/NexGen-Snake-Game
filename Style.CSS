@@ -251,43 +251,50 @@
 }
 
 .touch-controls {
-    display: none; /* Still hidden on desktop */
+    display: none;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 28vh;                 /* More bottom space */
+    height: 35vh;
     z-index: 1000;
+    pointer-events: none;
 }
 
 .touch-arrow {
+    pointer-events: all;
     position: absolute;
-    width: 80px;                  /* Bigger taps */
-    height: 80px;
-    font-size: 4rem;
-    /* existing glow styles... */
+    width: 90px;
+    height: 90px;
+    font-size: 4.8rem;
+    color: #00ffff;
+    background: rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 3px solid #00ffff;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    transition: all 0.2s ease;
 }
 
-/* Better mobile positions */
-.touch-arrow.left { 
-    left: 10vw; bottom: 10vh; 
+.touch-arrow:active {
+    transform: scale(0.9);
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 1);
 }
 
-.touch-arrow.right { 
-    right: 10vw; bottom: 10vh; 
-}
+.touch-arrow.left   { left: 8vw;   bottom: 8vh; }
+.touch-arrow.right  { right: 8vw;  bottom: 8vh; }
+.touch-arrow.up     { left: 50%; transform: translateX(-50%); bottom: 24vh; }
+.touch-arrow.down   { left: 50%; transform: translateX(-50%); bottom: 4vh; }
 
-.touch-arrow.up { 
-    left: 50%; transform: translateX(-50%); bottom: 22vh; 
-}
-  /* Higher up */
-.touch-arrow.down { 
-    left: 50%; transform: translateX(-50%); bottom: 4vh; 
-}   /* Lower down */
-
-/* Show on mobile */
 @media (max-width: 768px) {
-    .touch-controls { 
-        display: block; 
+    .touch-controls {
+        display: block;
+    }
+    .controls-note {
+        display: none; /* Cleaner mobile screen */
     }
 }

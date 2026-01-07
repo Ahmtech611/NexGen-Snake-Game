@@ -182,8 +182,13 @@ window.addEventListener('keydown', e => {
       return;
   }
 
-  if ((newDir.x !== -inputDir.x) || (newDir.y !== -inputDir.y)) {
+  // Fix: Prevent reverse + allow continuous direction change
+  if (newDir.x !== -inputDir.x || newDir.y !== -inputDir.y || SnakeArr.length === 1) {
     inputDir = newDir;
+    moveSound.currentTime = 0;
     moveSound.play();
   }
+
+  // Hide arrow key hint after first move
+  document.querySelector('.controls-note').style.opacity = '0';
 });
