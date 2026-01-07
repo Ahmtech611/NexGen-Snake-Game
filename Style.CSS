@@ -290,7 +290,6 @@
 }
 
 .touch-arrow:active {
-    opacity: 0.8;
     transform: scale(0.9);
     background: rgba(0, 40, 80, 0.6);
     box-shadow: 0 0 50px rgba(0, 255, 255, 1);
