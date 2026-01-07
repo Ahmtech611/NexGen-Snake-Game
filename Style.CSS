@@ -99,7 +99,7 @@
 
 @media (max-width: 768px) {
     .highscore-box {
-        top: 5vh;                 /* Much higher */
+        top: 7vh;                 /* Much higher */
         left: 3vw;
         font-size: 1rem;
         padding: 8px 14px;
