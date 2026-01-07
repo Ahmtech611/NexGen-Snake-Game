@@ -276,23 +276,25 @@
     position: absolute;
     width: 90px;
     height: 90px;
-    font-size: 4.8rem;
+    font-size: 5rem;
     color: #00ffff;
-    background: rgba(0, 20, 40, 0.35);   /* Semi-transparent dark - snake shows through */
-    backdrop-filter: blur(6px);
+    background: rgba(10, 20, 50, 0.3);   /* Very transparent - snake shows clearly */
+    backdrop-filter: blur(8px);
     border: 3px solid #00ffff;
-    border-radius: 22px;
+    border-radius: 50%;                 /* Round buttons look premium */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.8);
     transition: all 0.2s ease;
+    z-index: 999;
 }
 
+/* Press effect */
 .touch-arrow:active {
-    transform: scale(0.9);
-    background: rgba(0, 40, 80, 0.6);
-    box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+    transform: translateX(-50%) scale(0.9);  /* Keep centered when pressed */
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 1);
 }
 
 .touch-arrow.left   { 
@@ -306,8 +308,10 @@
     right: 8vw;  bottom: 8vh; 
 }
 
-.touch-arrow.up     { 
-    left: 50%; transform: translateX(-50%); bottom: 24vh; 
+.touch-arrow.up {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 21vh;    /* More space below */
 }
 
 .touch-arrow.down   { 

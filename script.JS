@@ -187,6 +187,28 @@ document.querySelectorAll('.touch-arrow').forEach(btn => {
   });
 });
 
+// Prevent Google Lens / Touch to Search popup on touch buttons
+document.querySelectorAll('.touch-arrow').forEach(btn => {
+  btn.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+  });
+
+  btn.addEventListener('touchstart', e => {
+      e.preventDefault();  // Stops any visual search trigger
+  });
+
+  btn.addEventListener('touchend', e => {
+      e.preventDefault();
+  });
+});
+
+// Global fallback - prevent context menu on whole page (optional, remove if you want right-click elsewhere)
+document.addEventListener('contextmenu', e => {
+  e.preventDefault();
+});
+
 // Main logic starts here :
 window.requestAnimationFrame(main); 
 
