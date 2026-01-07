@@ -19,10 +19,10 @@
 
 .title {
     position: fixed;
-    top: 4vh;                     /* Higher up, away from score boxes */
+    top: 4vh;                     
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.8rem;            /* Smaller on mobile for no overlap */
+    font-size: 2.8rem;            
     font-weight: 900;
     color: #00ffff;
     text-shadow: 
@@ -46,7 +46,7 @@
 
 .score-box {
     background: rgba(15, 15, 30, 0.6);
-    backdrop-filter: blur(10px); /* Glass effect - works in modern browsers */
+    backdrop-filter: blur(10px); 
     border: 1px solid rgba(0, 255, 234, 0.3);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.8),
@@ -67,7 +67,7 @@
 
 .highscore-box{
     background: rgba(15, 15, 30, 0.6);
-    backdrop-filter: blur(10px); /* Glass effect - works in modern browsers */
+    backdrop-filter: blur(10px); 
     border: 1px solid rgba(0, 255, 234, 0.3);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.8),
@@ -99,14 +99,14 @@
 
 @media (max-width: 768px) {
     .highscore-box {
-        top: 7vh;                 /* Much higher */
+        top: 7vh;                 
         left: 3vw;
         font-size: 1rem;
         padding: 8px 14px;
     }
     
     .score-box {
-        top: 14vh;                /* Lower, safe distance from high-score */
+        top: 14vh;                
         left: 3vw;
         font-size: 1rem;
         padding: 8px 14px;
@@ -204,12 +204,12 @@
 }
 
 .board{
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); /* Deeper dark blues */
-    border: 4px solid #00ffea; /* Cyan neon border */
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); 
+    border: 4px solid #00ffea; 
     box-shadow: 
             0 0 20px rgba(0, 255, 234, 0.6), 
             0 0 40px rgba(0, 255, 234, 0.4),
-            inset 0 0 30px rgba(0, 255, 234, 0.2); /* Outer + inner neon glow */
+            inset 0 0 30px rgba(0, 255, 234, 0.2);
     height: 92vmin;
     width : 92vmin;
     max-height: 70vh;
@@ -222,7 +222,7 @@
 }
 
 .head{
-    background: linear-gradient(135deg, #ff00ff, #00ffff); /* Magenta to cyan neon */
+    background: linear-gradient(135deg, #ff00ff, #00ffff); 
     box-shadow: 
         0 0 15px #ff00ff, 
         0 0 30px #00ffff, 
@@ -233,7 +233,7 @@
 }
 
 .snake{
-    background: linear-gradient(135deg, #00ffff, #00ffaa); /* Cyan to teal */
+    background: linear-gradient(135deg, #00ffff, #00ffaa); 
     box-shadow: 
         0 0 10px #00ffff, 
         0 0 20px #00ffaa;
@@ -243,7 +243,7 @@
 }
 
 .food{
-    background: radial-gradient(circle, #ffff00, #ff00ff); /* Yellow to magenta */
+    background: radial-gradient(circle, #ffff00, #ff00ff); 
     box-shadow: 
         0 0 20px #ffff00, 
         0 0 40px #ff00ff, 
@@ -293,7 +293,7 @@
 .touch-arrow:active {
     transform: scale(0.9);
     opacity: 0.8;
-    box-shadow: 0 0 40px rgba(0, 255, 255, 1); /* Optional: extra glow on press */
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1);
 }
 
 .touch-arrow.left   { left: 8vw;   bottom: 8vh; }
@@ -306,6 +306,6 @@
         display: block;
     }
     .controls-note {
-        display: none; /* Cleaner mobile screen */
+        display: none; 
     }
 }

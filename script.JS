@@ -4,7 +4,7 @@ const foodSound = new Audio("./assets/Music/food.mp3");
 const gameOverSound = new Audio("./assets/Music/gameover.mp3");
 const moveSound = new Audio("./assets/Music/move.mp3");
 const musicSound = new Audio("./assets/Music/music.mp3");
-musicSound.loop = true;  // ADDED: Prevents music restart spam
+musicSound.loop = true;  
 let Score = 0;
 
 //  High score variables :
@@ -69,7 +69,7 @@ function generateFoodPosition(snake) {
 }
 
 function gameEngine(){
-    // Updated eat block with high score + optional speed boost :
+    // Updated eat block with high score if snake element eat food :
     if(SnakeArr[0].y === Food.y && SnakeArr[0].x === Food.x){
       foodSound.play();
       Score += 1;
@@ -87,7 +87,6 @@ function gameEngine(){
         speed = Math.min(speed + 1, 15);
       }
       
-      // Grow correctly without extra forward jump
       SnakeArr.unshift({x : SnakeArr[0].x, y : SnakeArr[0].y});
       Food = generateFoodPosition(SnakeArr);
     }
@@ -100,7 +99,7 @@ function gameEngine(){
     SnakeArr[0].x += inputDir.x;
     SnakeArr[0].y += inputDir.y;
 
-    // Part 1 : Updating the Snake Array & Food :
+    // Part 1 : Updating the Snake Array and Food :
     if(isCollide(SnakeArr)){
       gameOverSound.play();
       musicSound.pause();
@@ -113,7 +112,7 @@ function gameEngine(){
       musicSound.play();
       Score = 0;
       scoreElement.innerText = Score;
-      // Reset speed on restart :
+      // Set the speed again :
       speed = 5;  
       return;
     }
@@ -121,7 +120,7 @@ function gameEngine(){
     // Part 2 : Display the Snake and Food :
     Board.innerHTML = "";
     SnakeArr.forEach((e, index)=>{
-       let snakeElement = document.createElement('div');  // FIXED: Added 'let' (was missing, caused errors/no display)
+       let snakeElement = document.createElement('div');  
        snakeElement.style.gridRowStart = e.y;
        snakeElement.style.gridColumnStart = e.x;
 
@@ -144,7 +143,6 @@ function gameEngine(){
 let hasMoved = false;
 
 window.addEventListener('keydown', e => {
-    // Your existing keydown code...
 
     if (!hasMoved && (e.key.startsWith('Arrow'))) {
         hasMoved = true;
@@ -156,7 +154,7 @@ window.addEventListener('keydown', e => {
 window.requestAnimationFrame(main); 
 
 function changeDirection(newDir) {
-  // Same anti-reverse logic as keyboard
+  
   if ((newDir.x !== -inputDir.x) || (newDir.y !== -inputDir.y)) {
       inputDir = newDir;
       moveSound.play();
@@ -183,13 +181,12 @@ window.addEventListener('keydown', e => {
       return;
   }
 
-  // Fix: Prevent reverse + allow continuous direction change
   if (newDir.x !== -inputDir.x || newDir.y !== -inputDir.y || SnakeArr.length === 1) {
     inputDir = newDir;
     moveSound.currentTime = 0;
     moveSound.play();
   }
 
-  // Hide arrow key hint after first move
+  // Hide arrow key after first move :
   document.querySelector('.controls-note').style.opacity = '0';
 });
