@@ -4,7 +4,8 @@ const foodSound = new Audio("./assets/Music/food.mp3");
 const gameOverSound = new Audio("./assets/Music/gameover.mp3");
 const moveSound = new Audio("./assets/Music/move.mp3");
 const musicSound = new Audio("./assets/Music/music.mp3");
-musicSound.loop = true;  // ADDED: Prevents music restart spam
+musicSound.loop = true;  
+const MAX_SNAKE_LENGTH = 18;
 let Score = 0;
 
 //  High score variables :
@@ -88,8 +89,32 @@ function gameEngine(){
       }
       
       // Grow correctly without extra forward jump
-      SnakeArr.unshift({x : SnakeArr[0].x, y : SnakeArr[0].y});
-      Food = generateFoodPosition(SnakeArr);
+      // Grow only if under max length
+      if(SnakeArr[0].y === Food.y && SnakeArr[0].x === Food.x){
+        foodSound.play();
+        Score += 1;
+        scoreElement.innerText = Score;
+        
+        // High score update
+        if (Score > highScore) {
+          highScore = Score;
+          highScoreElement.innerText = highScore;
+          localStorage.setItem('snakeHighScore', highScore);
+        }
+        
+        // Speed up every 5 points
+        if (Score % 5 === 0) {
+          speed = Math.min(speed + 1, 15);
+        }
+        
+        // Grow only if under max length - add new head at CURRENT position
+        if (SnakeArr.length < MAX_SNAKE_LENGTH) {
+          SnakeArr.unshift({x: SnakeArr[0].x, y: SnakeArr[0].y});
+        }
+        
+        // New food
+        Food = generateFoodPosition(SnakeArr);
+      }
     }
 
     // Moving the snake :
@@ -150,6 +175,16 @@ window.addEventListener('keydown', e => {
         hasMoved = true;
         document.querySelector('.controls-note').style.opacity = '0';
     }
+});
+
+// Prevent keyboard pop-up on mobile touch buttons
+document.querySelectorAll('.touch-arrow').forEach(btn => {
+  btn.addEventListener('touchstart', e => {
+      e.preventDefault();  // Stops keyboard/suggestions :
+  });
+  btn.addEventListener('touchend', e => {
+      e.preventDefault();
+  });
 });
 
 // Main logic starts here :
